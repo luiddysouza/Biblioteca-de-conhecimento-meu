@@ -1,6 +1,23 @@
 # Arquitetura de Formulários: A Analogia do Corpo Humano
 
-## 🎯 Conceito Central
+> `FormState` é o blueprint de um corpo sendo montado. `Entity` é o ser humano completo. Nunca confunda os dois — e nunca modifique o original.
+
+---
+
+## Sumário
+
+1. [Conceito Central](#1-conceito-central)
+2. [As Três Camadas](#2-as-três-camadas)
+3. [Fluxos Completos](#3-fluxos-completos)
+4. [Antes vs Depois](#4-antes-vs-depois)
+5. [Separação de Responsabilidades](#5-separação-de-responsabilidades)
+6. [Quando Usar FormState](#6-quando-usar-formstate)
+7. [Regras de Ouro](#7-regras-de-ouro)
+8. [Checklist de Implementação](#8-checklist-de-implementação)
+
+---
+
+## 1. Conceito Central
 
 **FormState é o blueprint de um corpo humano sendo montado. Entity é o ser humano completo e vivo.**
 
@@ -8,7 +25,7 @@ Durante a construção (preenchimento do formulário), o corpo pode estar incomp
 
 ---
 
-## 📐 As Três Camadas
+## 2. As Três Camadas
 
 ### 1. **FormState** - O Blueprint em Construção
 **Localização:** `presenter/pages/[feature]/[nome]_form_state.dart`
@@ -271,7 +288,7 @@ class ClienteFormCubit extends Cubit<ClienteFormState> {
 
 ---
 
-## 🔄 Fluxos Completos
+## 3. Fluxos Completos
 
 ### **Fluxo 1: CADASTRO (Novo Ser Humano)**
 
@@ -347,7 +364,7 @@ class ClienteFormCubit extends Cubit<ClienteFormState> {
 
 ---
 
-## 📊 Comparação: Antes vs Depois
+## 4. Antes vs Depois
 
 ### ❌ ANTES (Variáveis Soltas)
 
@@ -410,7 +427,7 @@ class ClienteFormCubit extends Cubit<ClienteFormState> {
 
 ---
 
-## 🎓 Separação de Responsabilidades
+## 5. Separação de Responsabilidades
 
 | Aspecto | FormState | Entity |
 |---------|-----------|--------|
@@ -424,7 +441,7 @@ class ClienteFormCubit extends Cubit<ClienteFormState> {
 
 ---
 
-## 🚦 Quando Usar FormState
+## 6. Quando Usar FormState
 
 ### ✅ USE para:
 - Formulários com **5+ campos**
@@ -441,7 +458,7 @@ class ClienteFormCubit extends Cubit<ClienteFormState> {
 
 ---
 
-## 💡 Regras de Ouro
+## 7. Regras de Ouro
 
 1. **FormState não é entidade** - São camadas diferentes
 2. **FormState pode ser inválido** - Entity nunca
@@ -453,7 +470,7 @@ class ClienteFormCubit extends Cubit<ClienteFormState> {
 
 ---
 
-## 📝 Checklist de Implementação
+## 8. Checklist de Implementação
 
 Ao criar um novo formulário complexo:
 
@@ -490,7 +507,4 @@ Essa arquitetura traz:
 
 **Use para formulários complexos.**
 
----
-
-*Documento criado em: 01/02/2026*
-*Última atualização: 01/02/2026*
+Ver [hard-skills/imutabilidade.md](imutabilidade.md) para entender a base conceitual do `copyWith` e porque objetos imutáveis eliminam uma classe inteira de bugs.

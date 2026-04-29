@@ -1,6 +1,23 @@
 # Context e SnackBar no Flutter
 
-## O que é Context
+> `BuildContext` é uma posição na árvore de widgets — não um acesso global. Errar o context é a causa mais comum do SnackBar aparecer no lugar errado.
+
+---
+
+## Sumário
+
+1. [O que é Context](#1-o-que-é-context)
+2. [Como funciona `.of(context)`](#2-como-funciona-ofcontext)
+3. [O problema com Dialogs e ModalBottomSheets](#3-o-problema-com-dialogs-e-modalbottomsheets)
+4. [Diferença entre contexts](#4-diferença-entre-contexts)
+5. [Solução para Dialog/ModalBottomSheet](#5-solução-para-dialogmodalbottomsheet)
+6. [Regras práticas](#6-regras-práticas)
+7. [Exemplo real — Hierarquia completa](#7-exemplo-real--hierarquia-completa)
+8. [Checklist](#8-checklist)
+
+---
+
+## 1. O que é Context
 
 `BuildContext` é uma referência à **posição de um widget na árvore**. Não é o widget em si - é um ponteiro que diz "estou aqui nessa hierarquia".
 
@@ -19,7 +36,9 @@ class MinhaTelaState extends State<MinhaTela> {
 }
 ```
 
-## Como funciona `.of(context)`
+---
+
+## 2. Como funciona `.of(context)`
 
 Quando você chama `ScaffoldMessenger.of(context)`, o Flutter **sobe a árvore de widgets** procurando o `ScaffoldMessenger` mais próximo **acima** desse context.
 
@@ -31,7 +50,9 @@ MaterialApp
                                  ← Sobe até achar Scaffold ✅
 ```
 
-## O problema com Dialogs e ModalBottomSheets
+---
+
+## 3. O problema com Dialogs e ModalBottomSheets
 
 ```dart
 MaterialApp
@@ -43,7 +64,9 @@ MaterialApp
 
 **Resultado:** `ScaffoldMessenger.of(context)` acha o Scaffold da **tela base**, que está **embaixo** do Dialog e ModalBottomSheet visualmente. A snackbar aparece escondida.
 
-## Diferença entre contexts
+---
+
+## 4. Diferença entre contexts
 
 ### Context do build vs Context interno
 
@@ -97,7 +120,9 @@ Scaffold(
 )
 ```
 
-## Solução para Dialog/ModalBottomSheet
+---
+
+## 5. Solução para Dialog/ModalBottomSheet
 
 ### Opção 1: Scaffold fora do Dialog (recomendado)
 ```dart
@@ -135,7 +160,9 @@ _scaffoldKey.currentState?.showSnackBar(...);
 ```
 **Vantagem:** Não depende de context, acesso direto.
 
-## Regras práticas
+---
+
+## 6. Regras práticas
 
 1. **Context = posição na árvore**, não é "a tela toda"
 2. **`.of(context)` sobe a árvore** procurando widgets acima
@@ -143,7 +170,9 @@ _scaffoldKey.currentState?.showSnackBar(...);
 4. **Para controlar onde algo aparece:** coloque Scaffold/Overlay na camada certa
 5. **Builder/métodos criam novo context** automaticamente abaixo do widget pai
 
-## Exemplo real - Hierarquia completa
+---
+
+## 7. Exemplo real — Hierarquia completa
 
 ```dart
 MaterialApp
@@ -164,3 +193,12 @@ MaterialApp
 ```
 
 **Solução:** Scaffold envolvendo `showDialog` garante que context aponta pro Scaffold correto.
+
+---
+
+## 8. Checklist
+
+- [ ] O context usado em `.of(context)` está **abaixo** do widget alvo na árvore
+- [ ] Dialogs e ModalBottomSheets que precisam exibir SnackBar usam `Builder` ou têm Scaffold próprio
+- [ ] Nenhum `ScaffoldMessenger.of(context)` usa o context do `build()` diretamente quando há Scaffold no mesmo nível
+- [ ] `GlobalKey<ScaffoldMessengerState>` considerado quando o context é inacessível no ponto de uso

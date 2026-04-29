@@ -1,6 +1,23 @@
 # Concorrência no Dart/Flutter: Future.wait, compute e Isolates
 
-## Visão Geral
+> Dart não tem threads no sentido clássico — tem isolates. Antes de paralelizar, a pergunta é uma só: a tarefa é I/O ou CPU?
+
+---
+
+## Sumário
+
+1. [Visão Geral](#1-visão-geral)
+2. [Future.wait](#2-futurewait)
+3. [compute](#3-compute)
+4. [Isolate.run](#4-isolaterun)
+5. [compute vs Isolate.run](#5-compute-vs-isolaterun)
+6. [Árvore de decisão](#6-árvore-de-decisão)
+7. [Exemplos práticos consolidados](#7-exemplos-práticos-consolidados)
+8. [Checklist](#8-checklist)
+
+---
+
+## 1. Visão Geral
 
 | | `Future.wait` | `compute` | `Isolate.run` |
 |---|---|---|---|
@@ -13,7 +30,7 @@
 
 ---
 
-## Future.wait
+## 2. Future.wait
 
 Dispara múltiplas operações **assíncronas ao mesmo tempo** e aguarda todas terminarem.
 Continua rodando na mesma thread — usa o event loop do Dart para intercalar operações de I/O.
@@ -67,7 +84,7 @@ final grafico = results[1];
 
 ---
 
-## compute
+## 3. compute
 
 Wrapper do Flutter sobre `Isolate.run`. Executa uma função em um **isolate separado** (thread separada) para não bloquear a UI.
 
@@ -132,7 +149,7 @@ await compute(_processar, {'dados': lista, 'config': 'valor'});
 
 ---
 
-## Isolate.run
+## 4. Isolate.run
 
 API nativa do Dart (2.19+). Mais flexível que `compute` — aceita lambdas diretamente.
 
@@ -179,7 +196,7 @@ void _trabalhoHeavy(Map<String, dynamic> args) {
 
 ---
 
-## compute vs Isolate.run
+## 5. compute vs Isolate.run
 
 ```dart
 // compute — Flutter only, função deve ser top-level/static
@@ -193,7 +210,7 @@ final result = await Isolate.run(() => _minhaFuncao(argumento));
 
 ---
 
-## Árvore de decisão
+## 6. Árvore de decisão
 
 ```
 A tarefa é I/O (rede, disco, banco de dados)?
@@ -209,7 +226,7 @@ A tarefa consome CPU (parse, encode, cálculo, mapeamento de lista grande)?
 
 ---
 
-## Exemplos práticos consolidados
+## 7. Exemplos práticos consolidados
 
 ### Carregar tela com múltiplas APIs independentes
 ```dart
@@ -251,3 +268,14 @@ ClienteCompleto _mapearCliente(Map<String, dynamic> json) =>
 // no repositório
 final cliente = await compute(_mapearCliente, response.data);
 ```
+
+---
+
+## 8. Checklist
+
+- [ ] Chamadas de I/O independentes agrupadas em `Future.wait`
+- [ ] Operações CPU-intensivas fora da UI thread (`compute` ou `Isolate.run`)
+- [ ] Funções passadas para `compute` são top-level ou `static`
+- [ ] Uso de `Isolate.run` quando lambdas são necessárias
+- [ ] `Record` ou `Map` usado quando `compute` precisa de múltiplos argumentos
+- [ ] Sem awaits sequenciais onde `Future.wait` caberia

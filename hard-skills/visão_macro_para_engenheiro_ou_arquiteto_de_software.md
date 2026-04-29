@@ -598,3 +598,5 @@ Use cada etapa como filtro para a próxima. Não adianta fazer mutation testing 
 | `very_good_coverage` | Enforçar threshold de cobertura no CI | [pub.dev](https://pub.dev/packages/very_good_coverage) |
 | C4 Model | Documentação de arquitetura | [c4model.com](https://c4model.com) |
 | Stryker (Dart — WIP) | Mutation testing | [GitHub](https://github.com/stryker-mutator/stryker-dart) |
+
+Ver [hard-skills/arquitetura-de-sistemas-complexos.md](arquitetura-de-sistemas-complexos.md) para decisões de arquitetura em sistemas complexos além do escopo Flutter.

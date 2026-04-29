@@ -1,6 +1,23 @@
 # Preparação para Entrevistas de Emprego
 
-## Passo 1 — LinkedIn e CV personalizado para a vaga
+> A entrevista começa antes da ligação. Quem chega preparado não improvisa — demonstra domicnio de narrativa, contexto e conexão com a empresa.
+
+---
+
+## Sumário
+
+1. [LinkedIn e CV personalizado para a vaga](#1-linkedin-e-cv-personalizado-para-a-vaga)
+2. [Raio-X do entrevistador e da empresa](#2-raio-x-do-entrevistador-e-da-empresa)
+3. [Escrever respostas das principais perguntas](#3-escrever-respostas-das-principais-perguntas)
+4. [Treinar tempo de resposta](#4-treinar-tempo-de-resposta)
+5. [Elaborar 3 perguntas para o final](#5-elaborar-3-perguntas-para-o-final)
+6. [Check-up antes da entrevista online](#6-check-up-antes-da-entrevista-online)
+7. [Técnicas de apoio](#7-técnicas-de-apoio)
+8. [Checklist](#8-checklist)
+
+---
+
+## 1. LinkedIn e CV personalizado para a vaga
 
 - O CV precisa contar **histórias relevantes para a vaga**, não ser genérico
 - **1 página apenas**
@@ -9,7 +26,7 @@
 
 ---
 
-## Passo 2 — Raio-X do entrevistador e da empresa
+## 2. Raio-X do entrevistador e da empresa
 
 ### Entrevistador (LinkedIn)
 - Histórico profissional e vivências
@@ -22,7 +39,7 @@
 
 ---
 
-## Passo 3 — Escrever respostas das principais perguntas em bullet points
+## 3. Escrever respostas das principais perguntas em bullet points
 
 ### "Me fale sobre você"
 Estrutura: **passado → presente → futuro**
@@ -61,7 +78,7 @@ Estrutura: **passado → presente → futuro**
 
 ---
 
-## Passo 4 — Treinar tempo de resposta
+## 4. Treinar tempo de resposta
 
 ### Método dos 2 minutos
 Cada resposta deve durar **no máximo 2 minutos**. Acima disso, perde o interesse do entrevistador.
@@ -74,7 +91,7 @@ Aplique para:
 
 ---
 
-## Passo 5 — Elaborar 3 perguntas para o final
+## 5. Elaborar 3 perguntas para o final
 
 - Devem ser **relevantes** para a situação (empresa ou entrevistador)
 - Se a pergunta puder ser respondida com uma mensagem rápida, não pergunte
@@ -93,7 +110,7 @@ Aplique para:
 
 ---
 
-## Passo 6 — Check-up antes da entrevista online
+## 6. Check-up antes da entrevista online
 
 ### Ambiente
 - Fundo limpo e neutro
@@ -110,7 +127,7 @@ Aplique para:
 
 ---
 
-## Técnicas de apoio
+## 7. Técnicas de apoio
 
 ### Método STAR (para apresentar realizações)
 Estruture suas histórias em:
@@ -125,3 +142,15 @@ Sempre finalize suas falas com algo **positivo** (uma promoção, um resultado e
 ### Perguntas absurdas ou inusitadas
 - Não precisa acertar a resposta
 - Demonstre **como você estrutura o raciocínio** para chegar a uma resposta lógica
+
+---
+
+## 8. Checklist
+
+- [ ] CV tem 1 página e conta histórias alinhadas à vaga
+- [ ] Narrativa do CV espelhada no LinkedIn
+- [ ] Respostas escritas em bullet points para: "Me fale sobre você", ponto forte, ponto fraco
+- [ ] Cada resposta treinada para durar no máximo 2 minutos
+- [ ] Raio-X do entrevistador feito (LinkedIn, histórico, pontos de conexão)
+- [ ] 3 perguntas preparadas para o final
+- [ ] Ambiente, áudio e câmera testados antes da entrevista online

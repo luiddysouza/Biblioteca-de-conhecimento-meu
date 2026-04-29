@@ -559,5 +559,6 @@ Orquestração de Agentes na prática:
                           e os NFRs do sistema (latência, custo, confiabilidade)
 ```
 
-- Ver [contexto-de-negocio-para-produto.md](contexto-de-negocio-para-produto.md) para definir o problema antes de construir o sistema
-- Ver [arquitetura-de-sistemas-complexos.md](arquitetura-de-sistemas-complexos.md) para decisões de infraestrutura do sistema de agentes
+- Ver [soft-skills/visao-de-produto-para-engenheiros.md](../soft-skills/visao-de-produto-para-engenheiros.md) para definir o problema antes de construir o sistema
+- Ver [hard-skills/arquitetura-de-sistemas-complexos.md](../hard-skills/arquitetura-de-sistemas-complexos.md) para decisões de infraestrutura do sistema de agentes
+- Ver [ia/context-engineering-e-llms.md](context-engineering-e-llms.md) para a base de como construir contexto de qualidade para os agentes

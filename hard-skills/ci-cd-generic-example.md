@@ -1,12 +1,22 @@
+# CI/CD para Flutter
 
-# CI/CD para Flutter — Base de Conhecimento Técnico
-
-> Referência genérica para GitHub Actions e Codemagic.  
-> Não está atrelada a nenhum projeto específico.
+> Automatizar build, testes e distribuição não é luxo — é a base que permite entregar com confiança e consistência em qualquer velocidade.
 
 ---
 
-## Conceitos
+## Sumário
+
+1. [Conceitos-chave](#1-conceitos-chave)
+2. [Fluxo recomendado](#2-fluxo-recomendado)
+3. [GitHub Actions](#3-github-actions)
+4. [Codemagic](#4-codemagic)
+5. [Branch protection](#5-branch-protection)
+6. [Ordem de implementação](#6-ordem-de-implementação)
+7. [Checklist](#7-checklist)
+
+---
+
+## 1. Conceitos-chave
 
 | Termo | Significado |
 |---|---|
@@ -19,7 +29,7 @@
 
 ---
 
-## Fluxo recomendado
+## 2. Fluxo recomendado
 
 ```
 PR aberto
@@ -34,7 +44,7 @@ Tag criada (v1.0.0)
 
 ---
 
-## GitHub Actions
+## 3. GitHub Actions
 
 ### Estrutura de arquivos
 
@@ -278,10 +288,9 @@ jobs:
 
 ---
 
-## Codemagic
+## 4. Codemagic
 
-> Plataforma de CI/CD mobile-first, com suporte nativo a Flutter.  
-> Configuração via `codemagic.yaml` na raiz do projeto.
+Plataforma de CI/CD mobile-first com suporte nativo a Flutter. Configuração via `codemagic.yaml` na raiz do projeto.
 
 ### Estrutura mínima do codemagic.yaml
 
@@ -433,7 +442,7 @@ Para o keystore Android, use a seção dedicada do Codemagic (Teams → Code sig
 
 ---
 
-## Branch protection (recomendado)
+## 5. Branch protection
 
 Independente da ferramenta, configure no GitHub:
 
@@ -449,7 +458,7 @@ Settings → Branches → Branch protection rules → main
 
 ---
 
-## Ordem de implementação
+## 6. Ordem de implementação
 
 | Etapa | O que fazer | Valor entregue |
 |---|---|---|
@@ -457,3 +466,15 @@ Settings → Branches → Branch protection rules → main
 | 2 | Branch protection | Ninguém pula o CI |
 | 3 | CD: build automático ao mergear na main | Testadores sempre têm build atualizado |
 | 4 | CD: publicar nas stores via tag | Release controlado e sem processo manual |
+
+---
+
+## 7. Checklist
+
+- [ ] CI configurado: `flutter analyze` + `flutter test` em todo PR
+- [ ] Branch protection ativado na `main` — CI deve passar antes de merge
+- [ ] Secrets de assinatura configurados (keystore Android, certificado iOS)
+- [ ] CD de staging: build automático ao mergear na `main`
+- [ ] Distribuição para testadores via Firebase App Distribution ou TestFlight
+- [ ] CD de produção disparado por tag (`v*.*.*`) — não por push direto
+- [ ] `flutter analyze --fatal-infos` no CI — não só erros
